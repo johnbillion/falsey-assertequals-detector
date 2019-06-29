@@ -1,0 +1,21 @@
+{
+    "name": "johnbillion/falsey-assertequals-detector",
+    "description": "Detects usage of assertEquals() with falsey values and marks the test as risky.",
+    "type": "library",
+	"homepage": "https://github.com/johnbillion/falsey-assertequals-detector/",
+	"license": "GPL-3.0+",
+	"authors": [
+		{
+			"name": "John Blackbourn",
+			"homepage": "https://johnblackbourn.com/"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"FalseyAssertEqualsDetector\\": "src"
+		}
+	},
+    "require": {
+        "phpunit/phpunit": "^5"
+    }
+}
