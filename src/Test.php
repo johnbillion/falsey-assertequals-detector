@@ -14,7 +14,7 @@ trait Test {
 	 * @param bool   $canonicalize
 	 * @param bool   $ignoreCase
 	 */
-	public static function assertEquals( $expected, $actual, $message = '', $delta = 0.0, $maxDepth = 10, $canonicalize = false, $ignoreCase = false ) {
+	public static function assertEquals( $expected, $actual, string $message = '', float $delta = 0, int $maxDepth = 10, bool $canonicalize = false, bool $ignoreCase = false ) : void {
 		parent::assertEquals( $expected, $actual, $message, $delta, $maxDepth, $canonicalize, $ignoreCase );
 
 		if ( ! $expected ) {
