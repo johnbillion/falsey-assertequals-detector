@@ -18,7 +18,7 @@ trait Test {
 		parent::assertEquals( $expected, $actual, $message, $delta, $maxDepth, $canonicalize, $ignoreCase );
 
 		if ( ! $expected ) {
-			throw new \PHPUnit_Framework_RiskyTestError( sprintf(
+			throw new \PHPUnit\Framework\RiskyTestError( sprintf(
 				'A falsey expected value is being used in assertEquals(). Type: %s, value: %s.',
 				gettype( $expected ),
 				str_replace( "\n", '', var_export( $expected, true ) )
@@ -26,7 +26,7 @@ trait Test {
 		}
 
 		if ( ! $actual ) {
-			throw new \PHPUnit_Framework_RiskyTestError( sprintf(
+			throw new \PHPUnit\Framework\RiskyTestError( sprintf(
 				'A falsey actual value is being used in assertEquals(). Type: %s, value: %s.',
 				gettype( $actual ),
 				str_replace( "\n", '', var_export( $actual, true ) )
