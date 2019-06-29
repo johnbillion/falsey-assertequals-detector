@@ -16,7 +16,7 @@ composer require --dev johnbillion/falsey-assertequals-detector=^3
 Use the trait in your base test class:
 
 ```php
-class My_Test extends PHPUnit_Framework_TestCase {
+class My_Test extends \PHPUnit\Framework\TestCase {
 
     use \FalseyAssertEqualsDetector\Test;
 
