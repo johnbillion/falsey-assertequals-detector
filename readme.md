@@ -1,6 +1,21 @@
 # Falsey assertEquals Detector
 
-Detects usage of `assertEquals()` with falsey values and marks the test as risky.
+This package will mark a PHPUnit test as risky if it tests a falsey value with `assertEquals()`.
+
+## Why?
+
+`assertEquals()` isn't type sensitive which means checking falsey values with it can result in tests passing when they shouldn't. For example, this assertion passes but it's probably unexpected:
+
+```php
+$expected = false;
+$actual   = 0;
+
+assertEquals( $expected, $actual );
+```
+
+Instead, `assertSame()` should be used when testing falsey values.
+
+This package will mark a test as risky if it tests a falsey value with `assertEquals()` so that you can investigate the test and improve its assertions as necessary.
 
 ## Installation
 
