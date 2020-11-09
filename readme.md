@@ -30,15 +30,15 @@ composer require --dev johnbillion/falsey-assertequals-detector=^3
 
 Use the trait in your base test class:
 
-```php
-class My_Test extends \PHPUnit\Framework\TestCase {
-
-    use \FalseyAssertEqualsDetector\Test;
-
-    public function testSomethingFalsey() {
-        $this->assertEquals( 0, false );
-    }
-}
+```diff
+ class My_Test extends \PHPUnit\Framework\TestCase {
+ 
++    use \FalseyAssertEqualsDetector\Test;
++
+     public function testSomethingFalsey() {
+         $this->assertEquals( 0, false );
+     }
+ }
 ```
 
 Any time one of your tests calls `assertEquals()`, the test will be marked as risky if either the expected value or the actual value are falsey.
