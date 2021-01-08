@@ -17,20 +17,22 @@ trait Test {
 	public static function assertEquals( $expected, $actual, string $message = '', float $delta = 0, int $maxDepth = 10, bool $canonicalize = false, bool $ignoreCase = false ) : void {
 		parent::assertEquals( $expected, $actual, $message, $delta, $maxDepth, $canonicalize, $ignoreCase );
 
-		if ( ! $expected ) {
-			throw new \PHPUnit\Framework\RiskyTestError( sprintf(
-				'A falsey expected value is being used in assertEquals(). Type: %s, value: %s.',
-				gettype( $expected ),
-				str_replace( "\n", '', var_export( $expected, true ) )
-			) );
+		if ( $expected && $actual ) {
+			return;
 		}
 
-		if ( ! $actual ) {
-			throw new \PHPUnit\Framework\RiskyTestError( sprintf(
-				'A falsey actual value is being used in assertEquals(). Type: %s, value: %s.',
-				gettype( $actual ),
-				str_replace( "\n", '', var_export( $actual, true ) )
-			) );
+		$falsey_message = '';
+
+		if ( $expected !== $actual ) {
+			$falsey_message = "\n\n" . 'The actual value is NOT identical to the expected value.';
 		}
+
+		throw new \PHPUnit\Framework\RiskyTestError( sprintf(
+			"A falsey value is being used in assertEquals().\nExpected type:  %s\nExpected value: %s\nActual type:    %s\nActual value:   %s" . $falsey_message,
+			gettype( $expected ),
+			str_replace( "\n", '', var_export( $expected, true ) ),
+			gettype( $actual ),
+			str_replace( "\n", '', var_export( $actual, true ) )
+		) );
 	}
 }
