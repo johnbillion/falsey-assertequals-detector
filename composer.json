@@ -16,6 +16,6 @@
 		}
 	},
     "require": {
-        "phpunit/phpunit": "^7 | ^8"
+        "phpunit/phpunit": "^7 | ^8 | ^9"
     }
 }

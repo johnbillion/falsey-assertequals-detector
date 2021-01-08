@@ -33,6 +33,8 @@ Falsey values include:
 composer require --dev johnbillion/falsey-assertequals-detector=^3
 ```
 
+PHPUnit 7, 8, and 9 are supported.
+
 * For PHPUnit 6 support, use version `^2`.
 * For PHPUnit 5 support, use version `^1`.
 
