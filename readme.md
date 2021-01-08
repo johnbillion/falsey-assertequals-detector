@@ -17,6 +17,16 @@ Instead, `assertSame()` should be used when testing falsey values.
 
 This package will mark a test as risky if it tests a falsey value with `assertEquals()` so that you can investigate the test and improve its assertions as necessary.
 
+Falsey values include:
+
+* An empty array
+* An empty string
+* Boolean `false`
+* Float `0.0`
+* Integer `0`
+* `null`
+* String `'0'`
+
 ## Installation
 
 ```shell
@@ -42,3 +52,14 @@ Use the trait in your base test class:
 ```
 
 Any time one of your tests calls `assertEquals()`, the test will be marked as risky if either the expected value or the actual value are falsey.
+
+## Example Output
+
+```
+1) test_foo
+A falsey value is being used in assertEquals().
+Expected type:  string
+Expected value: ''
+Actual type:    boolean
+Actual value:   false
+```
